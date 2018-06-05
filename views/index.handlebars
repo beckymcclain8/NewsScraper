@@ -1,7 +1,13 @@
 <div class="row">
     <div class="col-6">
         <h2>The News</h2>
+        <a href= "/scrape">Scrape the News</a>
+
         <ul style="font-size:large;">
-            {{#each articles}} {{this.title}} {{this.link}} {{/each}}
+            {{#each articles}} 
+            {{this.title}} 
+            <a href= {{this.link}}>Click Here for link</a>
+            <br>
+            {{/each}}
         </ul>
     </div>
