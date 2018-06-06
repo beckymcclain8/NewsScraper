@@ -5,9 +5,14 @@
 
         <ul style="font-size:large;">
             {{#each articles}} 
+            <div>
             {{this.title}} 
+            <br>
+            <img src= {{this.img}}></img>
+            <br>
             <a href= {{this.link}}>Click Here for link</a>
             <br>
+            </div>
             {{/each}}
         </ul>
     </div>

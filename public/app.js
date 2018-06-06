@@ -1,22 +1,4 @@
-// Grab the articles as a json
-// $.getJSON("/articles", function(data) {
-//     var hbsObject = {
-//         articles: data
-//       };
-//       console.log("hbsObject", hbsObject);
-//    res.render("index", hbsObject);
-  });
-  
-//   $(document).on("click", "#scrapeBtn", function() {
-//       $.ajax({
-//           method: "GET",
-//           url: "/scrape"
-//       })
-//       .then(function(data){
-//           console.log("redirect worked");
-//       })
-//       })
-//   })
+
   
   // Whenever someone clicks a p tag
   $(document).on("click", "p", function() {
