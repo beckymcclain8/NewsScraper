@@ -1,18 +1,24 @@
-<div class="row">
-    <div class="col-6">
-        <h2>The News</h2>
-        <a href= "/scrape">Scrape the News</a>
 
-        <ul style="font-size:large;">
-            {{#each articles}} 
-            <div>
-            {{this.title}} 
-            <br>
-            <img src= {{this.img}}></img>
-            <br>
-            <a href= {{this.link}}>Click Here for link</a>
-            <br>
-            </div>
-            {{/each}}
-        </ul>
+    <div class="row">
+        <div class="col-6">
+            <h2>The Good News is...</h2>
+
+            {{!--
+            <input type="button" id="btn" onclick="location.href='/scrape';" value="Click Here to Read the Good News!" /> --}} {{!--
+            <a href="/scrape">Scrape the News</a> --}}
+
+            <ul style="font-size:large;">
+                {{#each articles}}
+                <div id="news">
+                    {{this.title}}
+                    <br>
+                    <img id="img" src={{this.img}}></img>
+                    <br>
+                    <a href={{this.link}}>Click Here for link</a>
+                    <br>
+                    {{!-- <a href=  --}}
+                </div>
+                {{/each}}
+            </ul>
+        </div>
     </div>

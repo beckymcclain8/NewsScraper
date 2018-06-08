@@ -1,10 +1,10 @@
 
   
-  // Whenever someone clicks a p tag
-  $(document).on("click", "p", function() {
-    // Empty the notes from the note section
-    $("#notes").empty();
-    // Save the id from the p tag
+  // Whenever someone clicks a div tag
+  $(document).on("click", "div", function() {
+    // Empty the comments from the comment section
+    $("#comments").empty();
+    // Save the id from the div tag
     var thisId = $(this).attr("data-id");
    
     // Now make an ajax call for the Article
@@ -16,13 +16,13 @@
       .then(function(data) {
         console.log(data);
         // The title of the article
-        $("#notes").append("<h2>" + data.title + "</h2>");
+        $("#comments").append("<h2>" + data.title + "</h2>");
         // An input to enter a new title
-        $("#notes").append("<input id='titleinput' name='title' >");
+        $("#comments").append("<input id='titleinput' name='title' >");
         // A textarea to add a new note body
-        $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
+        $("#comments").append("<textarea id='bodyinput' name='body'></textarea>");
         // A button to submit a new note, with the id of the article saved to it
-        $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+        $("#comments").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
   
         // If there's a note in the article
         if (data.note) {
@@ -54,8 +54,8 @@
       .then(function(data) {
         // Log the response
         console.log(data);
-        // Empty the notes section
-        $("#notes").empty();
+        // Empty the comments section
+        $("#comments").empty();
       });
   
     // Also, remove the values entered in the input and textarea for note entry

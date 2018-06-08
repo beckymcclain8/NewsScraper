@@ -1,3 +1,51 @@
-div {
+.jumbotron {
+    background-image: url(./images/hotAirBalloons.jpg);
+    background-repeat: no-repeat;
+    margin-bottom: 0px;
+ 
+    background-position: 0% 25%;
+    background-size: cover;
+
+    color: white;
+    text-shadow: black 0.3em 0.3em 0.3em;
+    margin-bottom: 50px;
+    
+}
+
+.display-4 {
+    font-weight: bold;
+}
+
+#img {
+    width: 300px;
+} 
+
+h1 {
+    margin-left: 10px;
+}
+
+h2 {
+    color: blue;
+    font-family: cursive;
+    font-size: xx-large;
+    margin-bottom: 50px;
+}
+
+.btn {
+    margin-left: 500px;
+    margin-top: 150px;
+    background-color: transparent;
+    color: black;
+    text-shadow: none;
+    outline-color: white;
+    font-family: inherit;
+}
+
+#news {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
     margin-bottom: 20px;
+    outline-color: indigo;
+    outline-width: 5px;
+    /* background-color: blueviolet; */
 }
