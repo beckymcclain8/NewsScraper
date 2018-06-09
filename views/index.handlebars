@@ -1,24 +1,53 @@
+<div class="row">
+    <div class="col-6">
+        <h2>The Good News is...</h2>
 
-    <div class="row">
-        <div class="col-6">
-            <h2>The Good News is...</h2>
+        {{!--
+        <input type="button" id="btn" onclick="location.href='/scrape';" value="Click Here to Read the Good News!" /> --}} {{!--
+        <a href="/scrape">Scrape the News</a> --}}
 
-            {{!--
-            <input type="button" id="btn" onclick="location.href='/scrape';" value="Click Here to Read the Good News!" /> --}} {{!--
-            <a href="/scrape">Scrape the News</a> --}}
+        <ul style="font-size:large;">
+            {{#each articles}}
+            <div id="news">
+                <h5>{{this.title}}</h5>
+                <br>
+                <img id="img" src={{this.img}}></img>
+                <br>
+                <a href={{this.link}}>Click Here for link</a>
+                <br>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Comments
+                </button>
 
-            <ul style="font-size:large;">
-                {{#each articles}}
-                <div id="news">
-                    {{this.title}}
-                    <br>
-                    <img id="img" src={{this.img}}></img>
-                    <br>
-                    <a href={{this.link}}>Click Here for link</a>
-                    <br>
-                    {{!-- <a href=  --}}
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{this.title}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form class ="comments">
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">Leave a Comment</label>
+                                        <input type="text" class="form-control" id="com" placeholder="Example input">
+                                    </div>
+                               </form>
+                            </div>
+                            <div class="modal-footer">
+                                 <button data-id={{this.id}} type="button" id="submit-info" class="btn" data-dismiss="modal">Submit</button>
+                                 
+                                 <div id="comments"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                {{/each}}
-            </ul>
-        </div>
+            </div>
+            {{/each}}
+        </ul>
     </div>
+</div>
+

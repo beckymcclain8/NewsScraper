@@ -32,8 +32,8 @@ h2 {
 }
 
 .btn {
-    margin-left: 500px;
-    margin-top: 150px;
+    /* margin-left: 500px;
+    margin-top: 150px; */
     background-color: transparent;
     color: black;
     text-shadow: none;
@@ -45,7 +45,5 @@ h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
     margin-bottom: 20px;
-    outline-color: indigo;
-    outline-width: 5px;
     /* background-color: blueviolet; */
 }
