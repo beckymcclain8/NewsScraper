@@ -15,7 +15,7 @@
                 <br>
                 <a href={{this.link}}>Click Here for link</a>
                 <br>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" id = "commentId" data-toggle="modal" data-target="#exampleModal" data-id={{this.id}}>
                     Comments
                 </button>
 
@@ -30,24 +30,22 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form class ="comments">
-                                    <div class="form-group">
-                                        <label for="formGroupExampleInput">Leave a Comment</label>
-                                        <input type="text" class="form-control" id="com" placeholder="Example input">
-                                    </div>
-                               </form>
-                            </div>
-                            <div class="modal-footer">
-                                 <button data-id={{this.id}} type="button" id="submit-info" class="btn" data-dismiss="modal">Submit</button>
-                                 
-                                 <div id="comments"></div>
+                                {{!-- <form action= "/articles/:id" method= "post"> --}}
+                                <form>
+                                <input type= "text" id= "com" name= "comment">
+                                <button type="submit" id="saveBtn" data-id={{this.id}}>Submit</button>
+                                </form>
+                                
+
                             </div>
                         </div>
                     </div>
+                </div>
+                <div id="comments">
+                    {{!-- {{>comments}} --}}
                 </div>
             </div>
             {{/each}}
         </ul>
     </div>
 </div>
-

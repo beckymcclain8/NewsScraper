@@ -1,80 +1,46 @@
 
-  $("#submit-info").on("click", function(event) {
+ //probably won't work...
+ $("#goodNewsBtn").on("click", function(event) {
+   $("#goodNewsBtn").hide();
+ });
+ 
+ $("#commentId").on("click", function(event) {
     // Make sure to preventDefault on a submit event.
     console.log("button clicked");
-    event.preventDefault();
+    // event.preventDefault();
 
     var thisId = $(this).attr("data-id");
-
-    // var newComment = {
-    //   body: $("#com").val().trim(),
-    //   };
-
-    // Send the POST request.
+console.log("thisId", thisId);
+    // Now make an ajax call for the Article
     $.ajax({
-      method: "POST",
+      method: "GET",
       url: "/articles/" + thisId,
-      data: {
-        body: $("#com").val().trim()
-      }
     }).then(
       function(data) {
         console.log("data", data);
         // Reload the page to get the updated list
-        // $("#comments").append(newComment);
+        // data: {
+        //   body: $("#com").val().trim()
+        // }
+        $("#comments").append(data.body);
         location.reload();
       }
     );
   });
 
-  // // Whenever someone clicks a div tag
-  // $(document).on("click", "div", function() { 
-  //   // Empty the comments from the comment section
-  //   $("#comments").empty();
-  //   // Save the id from the div tag
-  //   var thisId = $(this).attr("data-id");
-   
-  //   // Now make an ajax call for the Article
-  //   $.ajax({
-  //     method: "GET",
-  //     url: "/articles/" + thisId
-  //   })
-  //     // With that done, add the note information to the page
-  //     .then(function(data) {
-  //       console.log(data);
-  //       // The title of the article
-  //       $("#comments").append("<h2>" + data.title + "</h2>");
-  //       // An input to enter a new title
-  //       $("#comments").append("<input id='titleinput' name='title' >");
-  //       // A textarea to add a new note body
-  //       $("#comments").append("<textarea id='bodyinput' name='body'></textarea>");
-  //       // A button to submit a new note, with the id of the article saved to it
-  //       $("#comments").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
-  
-  //       // If there's a note in the article
-  //       if (data.note) {
-  //         // Place the title of the note in the title input
-  //         $("#titleinput").val(data.note.title);
-  //         // Place the body of the note in the body textarea
-  //         $("#bodyinput").val(data.note.body);
-  //       }
-  //     });
-  // });
-  
   // When you click the savenote button
-  $(document).on("click", "#savenote", function() {
+  $(document).on("click", "#saveBtn", function() {
     // Grab the id associated with the article from the submit button
     var thisId = $(this).attr("data-id");
-  
+
+    var newComment = $("#com").val().trim();
+      
     // Run a POST request to change the note, using what's entered in the inputs
     $.ajax({
       method: "POST",
       url: "/articles/" + thisId,
-      data: {
-        // Value taken from title input
-        title: $("#titleinput").val(),
-        // Value taken from note textarea
-        body: $("#bodyinput").val()
+       data:{
+        body: newComment
       }
     })
       // With that done
@@ -84,9 +50,5 @@
         // Empty the comments section
         $("#comments").empty();
       });
-  
-    // Also, remove the values entered in the input and textarea for note entry
-    $("#titleinput").val("");
-    $("#bodyinput").val("");
   });
   
