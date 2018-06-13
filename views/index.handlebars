@@ -1,51 +1,32 @@
+<style>
+.comments {
+    position: fixed;
+    top: 100;
+}
+</style>
+
+<div class="container">
 <div class="row">
     <div class="col-6">
         <h2>The Good News is...</h2>
-
-        {{!--
-        <input type="button" id="btn" onclick="location.href='/scrape';" value="Click Here to Read the Good News!" /> --}} {{!--
-        <a href="/scrape">Scrape the News</a> --}}
-
         <ul style="font-size:large;">
             {{#each articles}}
             <div id="news">
                 <h5>{{this.title}}</h5>
                 <br>
-                <img id="img" src={{this.img}}></img>
+                <img id="img" src={{this.img}}>
                 <br>
                 <a href={{this.link}}>Click Here for link</a>
                 <br>
-                <button type="button" class="btn btn-primary" id = "commentId" data-toggle="modal" data-target="#exampleModal" data-id={{this.id}}>
+                <button type="button" class="btn btn-primary commentId" data-toggle="modal" data-target="#exampleModal" data-id={{this.id}}>
                     Comments
                 </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">{{this.title}}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                {{!-- <form action= "/articles/:id" method= "post"> --}}
-                                <form>
-                                <input type= "text" id= "com" name= "comment">
-                                <button type="submit" id="saveBtn" data-id={{this.id}}>Submit</button>
-                                </form>
-                                
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="comments">
-                    {{!-- {{>comments}} --}}
-                </div>
             </div>
             {{/each}}
         </ul>
     </div>
+    <div class="col-6">
+        <div class="comments"></div>
+    </div>
+</div>
 </div>

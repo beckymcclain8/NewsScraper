@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     margin-bottom: 0px;
  
-    background-position: 0% 25%;
+    background-position: 0% 25%; 
     background-size: cover;
 
     color: white;
@@ -46,4 +46,8 @@ h2 {
     font-size: large;
     margin-bottom: 20px;
     /* background-color: blueviolet; */
+}
+
+.comments{
+
 }
