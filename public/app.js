@@ -22,8 +22,8 @@ $(document).on("click", ".commentId", function() {
     // data: {
     //   body: $("#com").val().trim()
     // }
-    $(".comments").append("<h1> Comments <h2>");
-    $(".comments").append("<textarea id='com' name'comment'></textarea>");
+    $(".comments").append("<h2> Leave a Coment <h2>");
+    $(".comments").append("<textarea id='com' name'comment'></textarea><br>");
     $(".comments").append(
       "<button data-id='" + data._id + "'id='saveBtn'>Save Comment</button>"
     );

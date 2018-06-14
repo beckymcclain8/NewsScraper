@@ -1,32 +1,32 @@
-<style>
-.comments {
-    position: fixed;
-    top: 100;
-}
-</style>
-
 <div class="container">
-<div class="row">
-    <div class="col-6">
-        <h2>The Good News is...</h2>
-        <ul style="font-size:large;">
-            {{#each articles}}
-            <div id="news">
-                <h5>{{this.title}}</h5>
-                <br>
-                <img id="img" src={{this.img}}>
-                <br>
-                <a href={{this.link}}>Click Here for link</a>
-                <br>
-                <button type="button" class="btn btn-primary commentId" data-toggle="modal" data-target="#exampleModal" data-id={{this.id}}>
-                    Comments
-                </button>
-            </div>
-            {{/each}}
-        </ul>
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-primary btn-lg" id="goodNewsBtn" href="/scrape" role="button">Click Here to Read the Good News!</a>
+        </div>
     </div>
-    <div class="col-6">
-        <div class="comments"></div>
+    <div class="row">
+        <div class="col-8">
+            <h2>The Good News is...</h2>
+            <ul style="font-size:large;">
+                {{#each articles}}
+                <div id="news">
+                    <h4>{{this.title}}</h4>
+                    <br>
+                    <img id="img" src={{this.img}}>
+                    <br>
+                    <h5>
+                    <a href={{this.link}}>Click Here for link</a>
+                    </h5>
+                    <br>
+                    <button type="button" class="btn btn-primary commentId" data-toggle="modal" data-target="#exampleModal" data-id={{this.id}}>
+                        Comments
+                    </button>
+                </div>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-4">
+            <div class="comments"></div>
+        </div>
     </div>
-</div>
 </div>
