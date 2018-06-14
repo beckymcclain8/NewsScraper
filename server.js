@@ -37,6 +37,7 @@ var currentDb;
 
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
+  
   axios.get("https://www.goodnewsnetwork.org/").then(function(response) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
@@ -58,9 +59,7 @@ app.get("/scrape", function(req, res) {
         .children("img")
         .attr("src");
 
-    //   for (var i = 0; i < currentDb.length; i++) {
-    //     if (result.link[i] != currentDb) {
-    //       // Create a new Article using the `result` object built from scraping
+       // Create a new Article using the `result` object built from scraping
           db.Article.create(result)
             .then(function(dbArticle) {
               // View the added result in the console
