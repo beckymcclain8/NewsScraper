@@ -51,7 +51,7 @@ app.get("/scrape", function(req, res) {
       result.title = $(this)
         .children("a")
         .attr("title");
-      result.link = $(this)
+      result.link = $(this) 
         .children("a")
         .attr("href");
       result.img = $(this)
@@ -79,6 +79,7 @@ app.get("/scrape", function(req, res) {
 });
  
 // Route for getting all Articles from the db
+// I would like to add something to put the newest articles at the top... but I didn't get that far.
 app.get("/articles", function(req, res) {
   // Grab every document in the Articles collection
   db.Article.find({})
@@ -88,8 +89,7 @@ app.get("/articles", function(req, res) {
       };
       console.log("hbsObject", hbsObject);
       // If we were able to successfully find Articles, send them back to the client
-      currentDb = hbsObject;
-      res.render("index", hbsObject);
+       res.render("index", hbsObject);
     })
     .catch(function(err) {
       // If an error occurred, send it to the client

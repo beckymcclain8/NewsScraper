@@ -17,7 +17,8 @@
 }
 
 #goodNewsBtn {
-    position: absolute;
+    /* position: absolute; */
+    text-align: center;
     top: 50%;
 }
 
