@@ -17,16 +17,32 @@ app.use(bodyParser.json());
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
 
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var mongoURI = "mongodb://localhost/mongoHeadlines";
+
+  if (process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI);
+  } else {
+    mongoose.connect(mongoURI)
+  }
+
+  var mongooseErrorCheck = mongoose.connection;
+
+  mongooseErrorCheck.on("error", function(err) {
+    console.log("Mongoose Error: ", err);
+  });
+
+  mongooseErrorCheck.once("open", function() {
+    console.log("Mongoose connection successful.");
+  });
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+// mongoose.connect(MONGODB_URI);
 
 //ROUTES
 
